@@ -1,17 +1,15 @@
-// routes/deviceSerialRoutes.js
 import express from "express";
 import {
-  postDeviceSerial,
-  getDeviceById,
-  getAllDeviceSerials,
-  getLatestDeviceSerials
+  saveSerialDirect,
+  getSerialByDeviceId
 } from "../controllers/deviceSerialController.js";
 
 const router = express.Router();
 
-router.post("/api/device-serial", postDeviceSerial);
-router.get("/api/device-serial/:id", getDeviceById);
-router.get("/api/device-serials", getAllDeviceSerials);
-router.get("/api/latest-device-serials", getLatestDeviceSerials);
+// POST → direct save serial
+router.post("/device-serial", saveSerialDirect);
+
+// GET → get serial by deviceId
+router.get("/device-serial/:deviceId", getSerialByDeviceId);
 
 export default router;
